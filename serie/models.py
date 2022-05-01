@@ -21,3 +21,12 @@ class Serie (models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Episode (models.Model):
+    serie = models.ForeignKey ('Serie', related_name='episodes', on_delete=models.CASCADE)
+    title = models.CharField (max_length = 100)
+    video = models.URLField ()
+
+    def __str__(self):
+        return self.serie.title + ": " + self.title

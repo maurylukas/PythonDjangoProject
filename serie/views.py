@@ -17,3 +17,9 @@ class Homeseries (ListView):
 class Details (DetailView):
     template_name = 'details.html'
     model = Serie
+
+    def get_context_data(self, **kwargs):
+        context = super(Details, self).get_context_data(**kwargs)
+        related = Serie.objects.filter(category=self.get_object().category)[0:5]
+        context ['related'] = related
+        return context

@@ -18,4 +18,14 @@
             </a>
         {% endfor %}
     </div>
+    <div class="py-20">
+        <h2>Related episodes</h2>
+        {% for episode in related %}
+            <p>
+                <a href="{% url 'serie:details' serie.pk %}">
+                    {{ serie.title }}
+                </a>
+            </p>
+        {% endfor %}
+    </div>
 {% endblock %}

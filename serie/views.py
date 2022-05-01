@@ -18,6 +18,14 @@ class Details (DetailView):
     template_name = 'details.html'
     model = Serie
 
+
+    def get(self, request, *args, **kwargs):
+        serie = self.get_object()
+        serie.views += 1
+        serie.save()
+        return super(Details, self).get(request, *args, **kwargs)
+
+
     def get_context_data(self, **kwargs):
         context = super(Details, self).get_context_data(**kwargs)
         related = Serie.objects.filter(category=self.get_object().category)[0:5]

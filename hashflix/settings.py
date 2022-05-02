@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7h3-wl5u%yvwxqbi1fzyc0dqj3prl4m++$6h_+$^i4m6+aq@$e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'hashtagflix.herokuapp.com']
 
 
 # Application definition

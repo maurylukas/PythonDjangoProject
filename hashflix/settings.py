@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'serie.mycontext.recent',
                 'serie.mycontext.trending',
+                'serie.mycontext.highlight',
             ],
         },
     },

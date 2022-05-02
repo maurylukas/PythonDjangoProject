@@ -28,6 +28,19 @@ class Details (DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(Details, self).get_context_data(**kwargs)
-        related = Serie.objects.filter(category=self.get_object().category)[0:5]
+        related = self.model.objects.filter(category=self.get_object().category)[0:5]
         context ['related'] = related
         return context
+
+
+class Search (ListView):
+    template_name = 'search.html'
+    model = Serie
+
+    def get_queryset(self):
+        query = self.request.GET.get('query')
+        if query:
+            object_list = self.model.objects.filter(title__icontains=query)
+            return object_list
+        else:
+            return None
